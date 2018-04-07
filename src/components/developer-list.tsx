@@ -33,8 +33,8 @@ const developers: Developer[]  = [
 ];
 
 export class DeveloperList extends React.PureComponent<{}, ComponentState> {
-    constructor() {
-        super({});
+    constructor(props: any) {
+        super(props);
 
         this.state = {
             pairs: [],
@@ -48,11 +48,15 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
     public render() {
         return (
             <table className="c-developer-list">
-                <tr>
-                    <th>Coder</th>
-                    <th>Reviewer</th>
-                </tr>
-                {this.state.pairs.map(this._renderPair)}
+                <thead>
+                    <tr>
+                        <th>Coder</th>
+                        <th>Reviewer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.pairs.map(this._renderPair)}
+                </tbody>
             </table>
         );
     }

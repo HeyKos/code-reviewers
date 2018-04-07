@@ -1,5 +1,8 @@
 .App {
-  text-align: center; }
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  background-color: #fafafa; }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -9,7 +12,7 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: #fff; }
+  color: #ffffff; }
 
 .App-title {
   font-size: 1.5em; }
@@ -24,6 +27,17 @@
     transform: rotate(360deg); } }
 
 .c-developer-list {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
+  margin: 20px auto;
+  padding: 0 20px;
+  font-size: 20px;
+  border-collapse: separate;
+  border-spacing: 50px 20px; }
+  .c-developer-list td, .c-developer-list th {
+    text-align: left;
+    color: #81b5c0; }
+  .c-developer-list th {
+    font-weight: 700;
+    font-size: 24px;
+    border-bottom: 1px dashed #7ab1bd; }
+  .c-developer-list tbody td {
+    color: nav; }
