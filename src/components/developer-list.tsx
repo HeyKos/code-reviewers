@@ -47,9 +47,13 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
     
     public render() {
         return (
-            <ul className="c-developer-list">
+            <table className="c-developer-list">
+                <tr>
+                    <th>Coder</th>
+                    <th>Reviewer</th>
+                </tr>
                 {this.state.pairs.map(this._renderPair)}
-            </ul>
+            </table>
         );
     }
 
@@ -58,13 +62,9 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
         let counter = 0;
 
         while (counter < developers.length) {
-            console.log('Pair loop', counter);
             const coder = developers[counter];
-            console.log('coder', coder);
             const reviewer = counter + 1 >= developers.length ? developers[0] : developers[counter + 1];
-            console.log('reviewer', reviewer);
             pairs.push({ coder: coder, reviewer: reviewer });
-            console.log('pairs', pairs);
             counter += 2;
         }
 
@@ -73,16 +73,16 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
         });
     }
 
-    private _renderPair(pair: Pair, index: number): JSX.Element {
+    private _renderPair(pair: Pair, index: number) {
         if (pair === undefined || pair.coder === undefined || pair.reviewer === undefined) {
-            return <pre key={index} />;
+            return null;
         }
 
         return (
-            <li key={index}>
-                <span>{pair.coder.name}</span>
-                <span>{pair.reviewer.name}</span>
-            </li>
+            <tr key={index}>
+                <td>{pair.coder.name}</td>
+                <td>{pair.reviewer.name}</td>
+            </tr>
         );
     }
 }
