@@ -26,18 +26,18 @@
   to {
     transform: rotate(360deg); } }
 
-.c-developer-list {
+.c-developer-list table {
   margin: 20px auto;
   padding: 0 20px;
   font-size: 20px;
   border-collapse: separate;
   border-spacing: 50px 20px; }
-  .c-developer-list td, .c-developer-list th {
+  .c-developer-list table td, .c-developer-list table th {
     text-align: left;
     color: #81b5c0; }
-  .c-developer-list th {
+  .c-developer-list table th {
     font-weight: 700;
     font-size: 24px;
     border-bottom: 1px dashed #7ab1bd; }
-  .c-developer-list tbody td {
+  .c-developer-list table tbody td {
     color: nav; }

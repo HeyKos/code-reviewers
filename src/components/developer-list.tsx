@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+// ----------------------------------------------------------
+// Interfaces
+// ----------------------------------------------------------
+
 interface Developer {
     id:   number;
     name: string;
@@ -13,6 +17,10 @@ interface Pair {
 interface ComponentState {
     pairs: Pair[];
 }
+
+// ----------------------------------------------------------
+// Constants
+// ----------------------------------------------------------
 
 const developers: Developer[]  = [
     { id: 1,    name: 'Andrew Cameron' },
@@ -32,14 +40,28 @@ const developers: Developer[]  = [
     { id: 15,   name: 'Zach McCleaf' },
 ];
 
+// ----------------------------------------------------------
+// Component
+// ----------------------------------------------------------
+
 export class DeveloperList extends React.PureComponent<{}, ComponentState> {
+
+    // ----------------------------------------------------------
+    // Constructor
+    // ----------------------------------------------------------
+
     constructor(props: any) {
         super(props);
 
+        this._onRotateClick = this._onRotateClick.bind(this);
         this.state = {
             pairs: [],
         };
     }
+
+    // ----------------------------------------------------------
+    // Public Methods
+    // ----------------------------------------------------------
 
     public componentDidMount() {
         this._generatePairs();
@@ -47,19 +69,26 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
     
     public render() {
         return (
-            <table className="c-developer-list">
-                <thead>
-                    <tr>
-                        <th>Coder</th>
-                        <th>Reviewer</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.pairs.map(this._renderPair)}
-                </tbody>
-            </table>
+            <section className="c-developer-list">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Coder</th>
+                            <th>Reviewer</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {this.state.pairs.map(this._renderPair)}
+                    </tbody>
+                </table>
+                <button onClick={this._onRotateClick}>Rotate</button>
+            </section>
         );
     }
+
+    // ----------------------------------------------------------
+    // Private Methods
+    // ----------------------------------------------------------
 
     private _generatePairs() {
         const pairs: Pair[] = [];
@@ -69,7 +98,7 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
             const coder = developers[counter];
             const reviewer = counter + 1 >= developers.length ? developers[0] : developers[counter + 1];
             pairs.push({ coder: coder, reviewer: reviewer });
-            counter += 2;
+            counter += 1;
         }
 
         this.setState({
@@ -88,5 +117,32 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
                 <td>{pair.reviewer.name}</td>
             </tr>
         );
+    }
+
+    // ----------------------------------------------------------
+    // Event Handlers
+    // ----------------------------------------------------------
+
+    private _onRotateClick() {
+        const newPairs: Pair[] = [];
+        developers.forEach((developer, index) => {
+            // find the developer in the pairs listing then find the developer in pairs that is 2 
+            // ahead of them in the queue
+            const currentPairIndex = this.state.pairs.findIndex((p) => p.coder.id === developer.id); 
+            // get previous pair until you're not reviewing yourself.
+            let nextIndex = currentPairIndex !== 0 ? currentPairIndex - 1 : this.state.pairs.length - 1;
+            let nextPair = this.state.pairs[nextIndex];
+            while (developer.id === nextPair.reviewer.id) {
+                nextIndex = nextIndex - 1 < 0 ? this.state.pairs.length - 1 : nextIndex - 1;
+                nextPair = this.state.pairs[nextIndex];
+            }
+
+            newPairs.push({
+                coder:    developer,
+                reviewer: nextPair.reviewer,
+            });
+        });
+
+        this.setState({pairs: newPairs});
     }
 }

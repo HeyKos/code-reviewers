@@ -1,23 +1,25 @@
 .c-developer-list {
-    margin: 20px auto;
-    padding: 0 20px;
-    font-size: 20px;
-    // border-spacing: 10px 20px;
-    border-collapse: separate;
-    border-spacing: 50px 20px;
+    table {
+        margin: 20px auto;
+        padding: 0 20px;
+        font-size: 20px;
+        // border-spacing: 10px 20px;
+        border-collapse: separate;
+        border-spacing: 50px 20px;
 
-    td, th {
-        text-align: left;
-        color: $blue;
-    }
+        td, th {
+            text-align: left;
+            color: $blue;
+        }
 
-    th {
-        font-weight: 700;
-        font-size: 24px;
-        border-bottom: 1px dashed darken($color: $blue, $amount: 2)
-    }
+        th {
+            font-weight: 700;
+            font-size: 24px;
+            border-bottom: 1px dashed darken($color: $blue, $amount: 2)
+        }
 
-    tbody td {
-        color: nav 
+        tbody td {
+            color: nav 
+        }
     }
 }
