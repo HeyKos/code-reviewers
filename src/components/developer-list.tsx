@@ -70,6 +70,7 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
     public render() {
         return (
             <section className="c-developer-list">
+                <button onClick={this._onRotateClick}>Rotate</button>
                 <table>
                     <thead>
                         <tr>
@@ -81,7 +82,6 @@ export class DeveloperList extends React.PureComponent<{}, ComponentState> {
                         {this.state.pairs.map(this._renderPair)}
                     </tbody>
                 </table>
-                <button onClick={this._onRotateClick}>Rotate</button>
             </section>
         );
     }
