@@ -24,9 +24,11 @@ interface ComponentState {
 
 const developers: Developer[]  = [
     { id: 1,    name: 'Andrew Cameron' },
+    { id: 16,   name: 'Brandon Scott' },
     { id: 2,    name: 'Dylan Justice' },
     { id: 3,    name: 'Jim Stevenson' },
     { id: 4,    name: 'Jon Hollinger' },
+    { id: 17,   name: 'Josh Hughes' },
     { id: 5,    name: 'Josh Randall' },
     { id: 6,    name: 'Kevin Busch' },
     { id: 7,    name: 'LaVonne Eby' },
