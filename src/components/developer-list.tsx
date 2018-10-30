@@ -29,6 +29,7 @@ const developers: Developer[]  = [
     { id: 3,    name: 'Jim Stevenson' },
     { id: 4,    name: 'Jon Hollinger' },
     { id: 17,   name: 'Josh Hughes' },
+    { id: 19,   name: 'Josh Peters' },
     { id: 5,    name: 'Josh Randall' },
     { id: 6,    name: 'Kevin Busch' },
     { id: 7,    name: 'LaVonne Eby' },
@@ -36,8 +37,9 @@ const developers: Developer[]  = [
     { id: 9,    name: 'Mike Koser' },
     { id: 10,   name: 'Phil Hess' },
     { id: 11,   name: 'Scott Savage' },
-    { id: 12,   name: 'Shane Shearer' },
     { id: 13,   name: 'Stefanie Leitch' },
+    { id: 20,   name: 'Torrance Graham' },
+    { id: 18,   name: 'Von Bock' },
     { id: 14,   name: 'Winton DeShong' },
     { id: 15,   name: 'Zach McCleaf' },
 ];
